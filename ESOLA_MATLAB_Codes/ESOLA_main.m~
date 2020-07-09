@@ -1,0 +1,35 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Demo of Epoch-synchronous-based overlap (ESOLA) time- and pitch-scale modification of speech signals.
+% This program makes usec of two functions:
+% 1. ETS ()alls function 'ETS.m', which in-turn calls two other
+% functions, namely: 'zff_gci_func.m' and 'ETS_func.m'
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+clc;
+clear all
+close all
+
+% Read the speech file
+[x,Fs]=audioread('hindi.wav');
+% Play the original speech file
+% sound(x,Fs);  
+
+% specify speaking rate/time-scaling factor
+time_scaling_factor=1.25;  
+% Call ESOLA time-scale modifications (ETS) algorithm
+time_scaled_sp=ETS(x,Fs,time_scaling_factor); 
+% Play the time scale modified speech file
+% sound(time_scaled_sp,Fs); 
+
+% specify pitch-scaling factor
+pitch_scaling_factor=1.25;  
+% Call ESOLA pitch-scale modifications (EPS) algorithm
+pitch_scaled_sp=EPS(x,Fs,pitch_scaling_factor); 
+% Play the time scale modified speech file
+% sound(pitch_scaled_sp,Fs);
+
+
+
+
+
